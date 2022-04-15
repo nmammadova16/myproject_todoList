@@ -38,15 +38,22 @@
 
 
 .sortIconDiv {
-  width: 90%;
+  width: 20px;
   display: flex;
   justify-content: end;
+  margin-left: 290px;
 }
-
+.sortIconDiv:hover{
+  opacity: 0.6;
+}
+.changeOpa{
+  opacity: 1;
+}
 .sortIcon {
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: end;
+  opacity: 0.5;
 }
 
 .todoListParent {
@@ -55,8 +62,7 @@
   border-radius: 10px;
   margin-left: 25px;
   margin-right: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-inline-start: 0px;
 }
 
 .listsLi {

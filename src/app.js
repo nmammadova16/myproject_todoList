@@ -82,16 +82,11 @@ class TodoService {
    * @param {boolean?} direction Sorting direction. Default is true.
    */
   sortTodos(direction = true) {
-    const todos = [...this._todos]
-      .filter((t) => t.title)
-      .sort((t1, t2) =>
-        t1.title.toUpperCase() > t2.title.toUpperCase() ? 1 : -1
-      );
-    let buttonChange = document.querySelector("#sort-btn");
-    buttonChange.setAttribute("src", "./img/blackdown.svg");
+    const todos = [...this._todos].filter((t) => t.title).sort((t1, t2) => {
+      t1.title.toUpperCase() > t2.title.toUpperCase() ? 1 : -1
+    });
     if (!direction) {
       todos.reverse();
-      buttonChange.setAttribute("src", "./img/blackup.svg");
     }
     this._todos = todos;
     this._commit();
@@ -163,7 +158,10 @@ class DOMManipulator {
     this._addBtn.addEventListener("click", (_) => this._handleAdd());
     /** @type {HTMLButtonElement} */
     this._sortBtn = this._getElement("#sort-btn");
-    this._sortBtn.addEventListener("click", (_) => this._handleSort());
+    this._sortBtn.addEventListener("click", (_) => {
+      this._handleSort()
+
+    });
     this._sortDir = true;
 
     this.displayTodos();
@@ -226,6 +224,7 @@ class DOMManipulator {
     this._service.sortTodos(this._sortDir);
     this._sortDir = !this._sortDir;
     this.displayTodos();
+    this._sortBtn.src = this._sortDir ? './img/blackup.svg' : './img/blackdown.svg'
   }
 
   _showError(message) {
