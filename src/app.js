@@ -81,10 +81,12 @@ class TodoService {
    * Sort todo array.
    * @param {boolean?} direction Sorting direction. Default is true.
    */
-  sortTodos(direction = true) {
-    const todos = [...this._todos].filter((t) => t.title).sort((t1, t2) => {
-      t1.title.toUpperCase() > t2.title.toUpperCase() ? 1 : -1
-    });
+   sortTodos(direction = true) {
+    const todos = [...this._todos]
+      .filter((t) => t.title)
+      .sort((t1, t2) =>
+        t1.title.toUpperCase() > t2.title.toUpperCase() ? 1 : -1
+      );
     if (!direction) {
       todos.reverse();
     }
@@ -155,10 +157,10 @@ class DOMManipulator {
     this._todoList = this._getElement("#todo-list");
     /** @type {HTMLButtonElement} */
     this._addBtn = this._getElement("#add-btn");
-    this._addBtn.addEventListener("click", (_) => this._handleAdd());
+    this._addBtn.addEventListener("click", () => this._handleAdd());
     /** @type {HTMLButtonElement} */
     this._sortBtn = this._getElement("#sort-btn");
-    this._sortBtn.addEventListener("click", (_) => {
+    this._sortBtn.addEventListener("click", () => {
       this._handleSort()
 
     });
