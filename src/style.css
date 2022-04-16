@@ -4,15 +4,17 @@
   align-items: center;
   justify-content: center;
   height: 90vh;
+  margin: auto;
+  width: 350px;
 }
 
 .listContainer {
   background-color: white;
-  width: 347px;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
   margin: auto;
+  width: 100%;
 }
 
 .yellowline {
@@ -39,12 +41,12 @@
 
 
 .sortIconDiv {
-  width: 20px;
+  width: 100%;
   display: flex;
   justify-content: end;
-  margin-left: 290px;
+  /* margin-left: 290px; */
 }
-.sortIconDiv:hover{
+.sortIcon:hover{
   opacity: 0.6;
 }
 .changeOpa{
@@ -55,6 +57,7 @@
   margin-bottom: 10px;
   text-align: end;
   opacity: 0.5;
+  margin-right: 40px;
 }
 
 .todoListParent {
@@ -137,4 +140,18 @@
   font-family: roboto;
   font-family: "Roboto", sans-serif;
   margin: auto;
+}
+
+@media only screen and (max-width: 450px)  {
+  .todoList_Container {
+
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 320px)  {
+  .todoList_Container {
+
+    width: 270px;
+  }
 }
